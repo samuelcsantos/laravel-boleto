@@ -1,16 +1,16 @@
 {
-    "name": "samuelcsantos/laravel-boleto",
+    "name": "eduardokum/laravel-boleto",
     "description": "Biblioteca com boletos para o laravel",
     "keywords": [
-        "samuelcsantos",
+        "eduardokum",
         "laravel-boleto"
     ],
-    "homepage": "https://github.com/samuelcsantos/laravel-boleto",
+    "homepage": "https://github.com/eduardokum/laravel-boleto",
     "license": "MIT",
     "authors": [
         {
-            "name": "Samuel Santos",
-            "email": "prof.samuel.uniderp@gmail.com"
+            "name": "Eduardo Gusmão",
+            "email": "eduguscontra3@hotmail.com"
         }
     ],
     "require": {
@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "samuelcsantos\\LaravelBoleto\\": "src"
+            "Eduardokum\\LaravelBoleto\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "samuelcsantos\\LaravelBoleto\\Tests\\": "tests"
+            "Eduardokum\\LaravelBoleto\\Tests\\": "tests"
         }
     },
     "config": {
