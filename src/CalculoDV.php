@@ -285,8 +285,8 @@ class CalculoDV
     public static function cresolNossoNumero($carteira, $numero_boleto)
     {
         $n = $carteira.$numero_boleto;
-        Log::info("calculdo dv ".$n." digito:".Util::modulo11($n));
-        return  Util::modulo11($n);
+        //Log::info("calculdo dv ".$n." digito:".Util::modulo11($n));
+        return  $n.Util::modulo11($n);
     }
     
     /*
