@@ -181,7 +181,7 @@ class Cresol extends AbstractRemessa implements RemessaContract
         //log::info("aqui comeca :".$nosso_numero_aux);
         //$nosso_numero_aux = substr($nosso_numero_aux,0,11);
         //log::info("aqui tira o digito :".$nosso_numero_aux);
-        $nosso_numero = CalculoDV::cresolNossoNumero(Util::formatCnab('9',$this->getCarteiraNumero(),2), $nosso_numero_aux);
+        $nosso_numero = CalculoDV::cresolNossoNumero(Util::formatCnab('9',$this->getCarteiraNumero(),2), substr(Util::onlyNumbers($boleto->getNossoNumero()), -10));
         //log::info("aqui clacula de novo digito :".$dv_nosso_numero);
         //Log::info("aqui novo");
         //Log::info($nosso_numero_aux .$dv_nosso_numero); 
