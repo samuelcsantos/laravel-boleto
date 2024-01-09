@@ -185,8 +185,8 @@ class Cresol extends AbstractRemessa implements RemessaContract
         //log::info("aqui clacula de novo digito :".$dv_nosso_numero);
         //Log::info("aqui novo");
         //Log::info($nosso_numero_aux .$dv_nosso_numero); 
-        Log::info("bco cresol nosso número:",$nosso_numero_aux);
-        $this->add(71, 82, $nosso_numero_aux); // 12 digitos
+        Log::info("bco cresol nosso número:".$nosso_numero);
+        $this->add(71, 82, $nosso_numero); // 12 digitos
 
         $this->add(83, 92, '');
         $this->add(93, 93, '2'); //cliente emite o boleto
