@@ -177,16 +177,7 @@ class Cresol extends AbstractRemessa implements RemessaContract
         $this->add(66, 66, ($boleto->getMulta() > 0 ? '2' : '0'));
         $this->add(67, 70, Util::formatCnab('9', $boleto->getMulta(), 4, 2));
 
-        $nosso_numero_aux = Util::formatCnab('9',$this->getCarteiraNumero(),2). substr(Util::onlyNumbers($boleto->getNossoNumero()), -10);
-        //log::info("aqui comeca :".$nosso_numero_aux);
-        //$nosso_numero_aux = substr($nosso_numero_aux,0,11);
-        //log::info("aqui tira o digito :".$nosso_numero_aux);
-        $nosso_numero = CalculoDV::cresolNossoNumero(Util::formatCnab('9',$this->getCarteiraNumero(),2), substr(Util::onlyNumbers($boleto->getNossoNumero()), -10));
-        //log::info("aqui clacula de novo digito :".$dv_nosso_numero);
-        //Log::info("aqui novo");
-        //Log::info($nosso_numero_aux .$dv_nosso_numero); 
-        Log::info("bco cresol nosso número:".$nosso_numero);
-        $this->add(71, 82, $nosso_numero); // 12 digitos
+        $this->add(71, 82, $boleto->getNossoNumero());
 
         $this->add(83, 92, '');
         $this->add(93, 93, '2'); //cliente emite o boleto

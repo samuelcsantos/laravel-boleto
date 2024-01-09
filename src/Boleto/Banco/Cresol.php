@@ -172,9 +172,9 @@ class Cresol extends AbstractBoleto implements BoletoContract
     protected function gerarNossoNumero()
     {
         $numero_boleto = Util::numberFormatGeral($this->getNumero(), 11);
-        $nossoNumero = $this->getCarteira() . $numero_boleto
-            . CalculoDV::cresolNossoNumero($this->getCarteira(), $numero_boleto);
-        return $nossoNumero;
+        $digito = CalculoDV::cresolNossoNumero($this->getCarteira(), $numero_boleto);
+
+        return $numero_boleto.$digito;
     }
     /**
      * Método que retorna o nosso numero usado no boleto. alguns bancos possuem algumas diferenças.

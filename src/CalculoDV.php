@@ -284,10 +284,21 @@ class CalculoDV
     */
     public static function cresolNossoNumero($carteira, $numero_boleto)
     {
-        $n = $carteira.$numero_boleto;
-        //Log::info("calculdo dv ".$n." digito:".Util::modulo11($n));
-        return  $n.Util::modulo11($n);
+        $base = "2765432765432";
+        $soma = 0;
+        $numero_aux = $carteira.$numero_boleto;
+        for ($i = 0; $i < strlen($numero_aux); $i++) {
+            $soma += intval($numero_aux[$i]) * intval($base[$i]);
+        }
+        $resto = $soma % 11;
+        if($resto==1){
+            $digitoVerificador = "P";
+        }else{
+            $digitoVerificador = ($resto == 0) ? 0 : 11 - $resto;
+        }       
+        return  $digitoVerificador;
     }
+
     
     /*
     |--------------------------------------------------------------------------
