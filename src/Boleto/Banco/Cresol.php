@@ -197,13 +197,7 @@ class Cresol extends AbstractBoleto implements BoletoContract
             return $this->campoLivre;
         }
 
-        $campoLivre = $this->isComRegistro() ? '1' : '3';
-        $campoLivre .= Util::numberFormatGeral($this->getCarteira(), 1);
-        $campoLivre .= $this->getNossoNumero();
-        $campoLivre .= Util::numberFormatGeral($this->getAgencia(), 4);
-        $campoLivre .= Util::numberFormatGeral($this->getCodigoCliente(), 5);
-        $campoLivre .= '10';
-        $campoLivre .= Util::modulo11($campoLivre);
+        $campoLivre = "102609".$this->getNossoNumero().Util::numberFormatGeral($this->getCodigoCliente(), 7)."0";
 
         return $this->campoLivre .= $campoLivre;
     }
