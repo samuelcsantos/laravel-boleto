@@ -183,7 +183,7 @@ class Cresol extends AbstractBoleto implements BoletoContract
      */
     public function getNossoNumeroBoleto()
     {
-        return Util::maskString($this->getNossoNumero(), '#############-#');
+        return Util::maskString($this->getNossoNumero(), '###########-#');
     }
     /**
      * Método para gerar o código da posição de 20 a 44
@@ -196,8 +196,8 @@ class Cresol extends AbstractBoleto implements BoletoContract
         if ($this->campoLivre) {
             return $this->campoLivre;
         }
-
-        $campoLivre = "102609".$this->getNossoNumero().Util::numberFormatGeral($this->getCodigoCliente(), 7)."0";
+        $numero_boleto = Util::numberFormatGeral($this->getNumero(), 11);
+        $campoLivre = "102609".$numero_boleto.Util::numberFormatGeral($this->getCodigoCliente(), 7)."0";
 
         return $this->campoLivre .= $campoLivre;
     }
